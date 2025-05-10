@@ -12,12 +12,13 @@ export const TOOGLE_SIDEBAR = [
       'open',
       style({
         left: 0,
+        width: '16rem',
       })
     ),
     state(
       'closed',
       style({
-        width: '3rem',
+        width: '4rem',
       })
     ),
     transition('open <=> closed', animate('250ms ease-in-out')),
@@ -33,7 +34,7 @@ export const TOOGLE_SIDEBAR = [
     state(
       'closed',
       style({
-        marginLeft: '3rem',
+        marginLeft: '4rem',
       })
     ),
     transition('open <=> closed', animate('250ms ease-in-out')),
@@ -43,16 +44,18 @@ export const TOOGLE_SIDEBAR = [
     state(
       'open',
       style({
+        opacity: 1,
         visibility: 'visible',
       })
     ),
     state(
       'closed',
       style({
+        opacity: 0,
         visibility: 'hidden',
       })
     ),
-    transition('open <=> closed', animate('250ms ease-in-out')),
+    transition('open <=> closed', animate('200ms ease-in-out')),
   ]),
 
   trigger('toogleMenuItems', [
@@ -68,9 +71,11 @@ export const TOOGLE_SIDEBAR = [
     state(
       'closed',
       style({
-        width: '3rem',
+        width: '3.5rem',
         paddingTop: '1.25rem',
         paddingBottom: '1.25rem',
+        paddingLeft: '0.75rem',
+        paddingRight: '0.75rem',
       })
     ),
     transition('open <=> closed', animate('250ms ease-in-out')),

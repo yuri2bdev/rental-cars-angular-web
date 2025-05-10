@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../template/header/header.component';
 import { SideMenuComponent } from '../template/side-menu/side-menu.component';
 import { FooterComponent } from '../template/footer/footer.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -29,32 +30,40 @@ import { FooterComponent } from '../template/footer/footer.component';
 export class LayoutComponent implements OnInit {
   items!: MenuItem[];
 
-  breadcumbs: MenuItem[] = [{ label: 'Pagina Inicial' }];
+  breadcumbs: MenuItem[] = [{ label: 'Página Inicial' }];
 
   breadcumbsHome!: MenuItem;
 
+  constructor(private router: Router) {}
+
   ngOnInit(): void {
+    this.breadcumbsHome = { icon: 'pi pi-home', routerLink: '/' };
+    
     this.items = [
       {
-        label: 'Item Menu 1',
-        icon: 'fa fa-search fa-lg',
-        command: () => {},
+        label: 'Início',
+        icon: 'pi pi-home',
+        routerLink: '/',
+        command: () => {
+          this.updateBreadcrumbs('Página Inicial');
+        },
       },
       {
-        label: 'Item Menu 2',
-        icon: 'fa fa-home fa-lg',
-        command: () => {},
+        label: 'Upload de Aluguéis',
+        icon: 'pi pi-cloud-upload',
+        routerLink: '/upload',
+        command: () => {
+          this.updateBreadcrumbs('Upload de Aluguéis');
+        },
       },
       {
-        label: 'Item Menu 3',
-        icon: 'fa fa-folder-open',
-        command: () => {},
-      },
-      {
-        label: 'Item Menu 4',
-        icon: ' fa fa-money',
-        command: () => {},
-      },
+        label: 'Relatórios',
+        icon: 'pi pi-chart-line',
+        routerLink: '/relatorios',
+        command: () => {
+          this.updateBreadcrumbs('Relatórios');
+        },
+      }
     ];
   }
 
@@ -66,5 +75,9 @@ export class LayoutComponent implements OnInit {
 
   hasOpen(): string {
     return this.isOpenMenu ? 'open' : 'closed';
+  }
+
+  updateBreadcrumbs(label: string) {
+    this.breadcumbs = [{ label }];
   }
 }

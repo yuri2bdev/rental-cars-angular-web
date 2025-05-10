@@ -1,11 +1,38 @@
-<div class="layout-topbar align-content-center">
+<div class="layout-topbar align-content-center fade-in">
   <div class="layout-topbar-top">
     <div class="layout-topbar-logo gap-2">
-      <span>LOGO</span>
+      <img src="assets/logo/logo.png" alt="Rental Cars Logo" class="logo-image" />
+      <span class="logo-text">Rental Cars</span>
     </div>
 
-    <div class="flex align-items-center gap-2">
-      <span>{{ username }}</span>
+    <div class="layout-topbar-menu">
+      <nav class="main-nav">
+        <ul>
+          <li>
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              <i class="pi pi-home"></i>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a routerLink="/upload" routerLinkActive="active">
+              <i class="pi pi-upload"></i>
+              <span>Upload</span>
+            </a>
+          </li>
+          <li>
+            <a routerLink="/relatorios" routerLinkActive="active">
+              <i class="pi pi-chart-bar"></i>
+              <span>Relatórios</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="flex align-items-center gap-2 user-profile">
+      <i class="pi pi-user"></i>
+      <span>{{ username || 'Usuário' }}</span>
       <p-avatar
         [label]="initialsName"
         styleClass="mr-2"

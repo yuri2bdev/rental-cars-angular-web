@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { InputTextModule } from 'primeng/inputtext';
 import { TOOGLE_SIDEBAR } from '../../layout/layout.animation';
 import { FormFieldComponent } from '../../../shared/components/form-field/form-field.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-side-menu',
@@ -20,6 +21,7 @@ import { FormFieldComponent } from '../../../shared/components/form-field/form-f
     PanelMenuModule,
     CommonModule,
     InputTextModule,
+    RouterModule
   ],
   animations: [TOOGLE_SIDEBAR],
   templateUrl: './side-menu.component.html',
